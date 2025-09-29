@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Pokedex</title>
+</head>
+<body>
+    <header>
+        <!-- <img src="img/pokeball_1.png" alt=""> -->
+        <nav>
+            <ul>
+            <li><a href="C:\Users\santiago.luna\OneDrive - Accenture\Talento Tech - FrontJS\Proyecto\index.html">Inicio</a></li>
+            <li><a href="C:\Users\santiago.luna\OneDrive - Accenture\Talento Tech - FrontJS\Proyecto\pokedex.html">Pokédex</a></li>
+            <li><a href="#">Comparador</a></li>
+            <li><a href="#">Galería</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <button class="anterior"> < </button>
+
+        <section class="cards">
+            <article class="pokemon-card">
+                <img id="img-pokedex" class="img-pokedex" src="" alt="">
+                <div>
+                    <!-- <h2 id="nombre-pokedex"></h2>
+                    <h3 id="tipo-pokedex"></h3>
+                    <h4 id="id-pokedex"></h4>
+                    <h5 id="stats-pokedex"></h5> -->
+
+                    <span id="id-pokedex"></span>
+                    <span id="nombre-pokedex"></span>
+                    <p id="tipo-pokedex"></p>                    
+                    <p id="stats-pokedex"></p>
+                </div>
+            </article>
+        </section>
+        
+        <button class="siguiente"> > </button> <br><br>
+
+        <!-- Input y boton para buscar un Pokemon en particular  -->
+        <input type="text" placeholder="Escribi el nombre del Pokemon">        
+        <button type="submit">Buscar</button>
+              
+    </main>
+
+    <footer>
+        <p>© 2025 Tu proyecto Pokémon | API: PokeAPI</p>
+    </footer>   
+
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
