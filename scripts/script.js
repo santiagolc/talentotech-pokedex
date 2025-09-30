@@ -3,7 +3,7 @@ const requestOptions = {
   redirect: "follow"
 };
 
-fetch("https://pokeapi.co/api/v2/pokemon/charizard", requestOptions)
+fetch("https://pokeapi.co/api/v2/pokemon/bulbasaur", requestOptions)
   .then((response) => response.json())
   .then((result) => {
 
@@ -45,3 +45,20 @@ fetch("https://pokeapi.co/api/v2/pokemon/charizard", requestOptions)
 ;
   })
   .catch((error) => console.error(error));
+
+// busqueda por numero o nombre
+document.getElementById("submit").addEventListener("click", buscarPorInput);
+document.getElementById("buscar").addEventListener("keydown", function(event){
+    if(event.key === "Enter") {
+        event.preventDefault();
+        buscarPorInput();
+    }
+});
+
+// busqueda por boton siguiente o anterior
+document.getElementById("siguiente").addEventListener("click", () => anteriorSiguiente(1));
+document.getElementById("anterior").addEventListener("click", () => anteriorSiguiente(-1));
+
+//cambiar el pokmon a shiny
+document.getElementById("shiny").addEventListener("click", cambioIMG);
+
