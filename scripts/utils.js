@@ -34,133 +34,81 @@ function formatTextStats(text) {
   }
 }
 
-// función para buscar pokemon por numero o nombre
-function buscarPorInput(){
-  const value = document.getElementById("buscar").value
-
-  fetch(`https://pokeapi.co/api/v2/pokemon/${value}`, requestOptions)
+// funcion para mostrar un pokemon
+function mostrarPokemon(valorURL, idEtiqueta, descripcion){
+  fetch(`https://pokeapi.co/api/v2/pokemon/${valorURL}`, requestOptions)
   .then((response) => response.json())
   .then((result) => {
 
-    //Imagen del Pokemon
+    // Imagen del Pokemon
     const urlImagen = result.sprites.front_default;
-    const imgElemento = document.getElementById("img-pokedex");
+    const imgElemento = document.getElementById(`img-${idEtiqueta}`);
     imgElemento.src = urlImagen;
 
     // Nombre del Pokemon
     const nombrePokemon = result.name;
-    const nombreH2 = document.getElementById("nombre-pokedex");
+    const nombreH2 = document.getElementById(`nombre-${idEtiqueta}`);
     nombreH2.textContent = capitalize(nombrePokemon);
     
     // Tipo del Pokemon
     const tipoPokemon = result.types.map(t => `${t.type.name}`);
-    const tipoH3 = document.getElementById("tipo-pokedex");
+    const tipoH3 = document.getElementById(`tipo-${idEtiqueta}`);
     tipoH3.textContent = formatTextType(tipoPokemon);
   
     // Id del Pokemon
     idActual = result.id;
-    const idH4 = document.getElementById("id-pokedex");
+    const idH4 = document.getElementById(`id-${idEtiqueta}`);
     idH4.textContent = '# ' + idActual + ' - ';
 
     // Stats del Pokemon
     const statsPokemon = result.stats.map(s => `${s.stat.name}: ${s.base_stat}`);
-    const statsH5 = document.getElementById("stats-pokedex");
+    const statsH5 = document.getElementById(`stats-${idEtiqueta}`);
     statsH5.innerHTML = formatTextStats(statsPokemon);
 
-// limpia el input cuando termina la busqueda
-document.getElementById("buscar").value = "";
- 
 })
   .catch((error) => console.error(error));
-};
 
-// función para buscar siguiente pokemon (id)
-function siguiente(){
-  const idABuscar = idActual +1
+}
 
-  fetch(`https://pokeapi.co/api/v2/pokemon/${idABuscar}`, requestOptions)
+// funcion para ver la descripcion de la pokedex
+function mostrarDescripcion(idEtiqueta){
+  fetch(`https://pokeapi.co/api/v2/pokemon-species/${idActual}`, requestOptions)
   .then((response) => response.json())
   .then((result) => {
 
-    //Imagen del Pokemon
-    const urlImagen = result.sprites.front_default;
-    const imgElemento = document.getElementById("img-pokedex");
-    imgElemento.src = urlImagen;
+    let textos = result.flavor_text_entries.filter(entry => entry.language.name === "es");
 
-    // Nombre del Pokemon
-    const nombrePokemon = result.name;
-    const nombreH2 = document.getElementById("nombre-pokedex");
-    nombreH2.textContent = capitalize(nombrePokemon);
-    
-    // Tipo del Pokemon
-    const tipoPokemon = result.types.map(t => `${t.type.name}`);
-    const tipoH3 = document.getElementById("tipo-pokedex");
-    tipoH3.textContent = formatTextType(tipoPokemon);
-  
-    // Id del Pokemon
-    const idPokemon = result.id;
-    const idH4 = document.getElementById("id-pokedex");
-    idH4.textContent = '# ' + idPokemon + ' - ';
-
-    // Stats del Pokemon
-    const statsPokemon = result.stats.map(s => `${s.stat.name}: ${s.base_stat}`);
-    const statsH5 = document.getElementById("stats-pokedex");
-    statsH5.innerHTML = formatTextStats(statsPokemon);
-
-// limpia el input cuando termina la busqueda
-document.getElementById("buscar").value = "";
-
-// reinicio la variable idActual
-idActual = idPokemon;
-
+    const descripcion = textos[0];
+    const descripcionElemento = document.getElementById(`descripcion-${idEtiqueta}`);
+    descripcionElemento.innerHTML = descripcion;
 })
   .catch((error) => console.error(error));
 };
 
-// función para buscar pokemon anterior (id)
+// función para buscar pokemon por numero o nombre
+function buscarPorInput(){
+  const value = document.getElementById("buscar").value
+  mostrarPokemon(value, "pokedex")
+
+  // limpia el input cuando termina la busqueda
+document.getElementById("buscar").value = ""
+ 
+};
+
+// función para buscar pokemon siguiente/anterior (id)
 function anteriorSiguiente(signo){
   const idABuscar = idActual + signo
-
-  fetch(`https://pokeapi.co/api/v2/pokemon/${idABuscar}`, requestOptions)
-  .then((response) => response.json())
-  .then((result) => {
-
-    //Imagen del Pokemon
-    const urlImagen = result.sprites.front_default;
-    const imgElemento = document.getElementById("img-pokedex");
-    imgElemento.src = urlImagen;
-
-    // Nombre del Pokemon
-    const nombrePokemon = result.name;
-    const nombreH2 = document.getElementById("nombre-pokedex");
-    nombreH2.textContent = capitalize(nombrePokemon);
-    
-    // Tipo del Pokemon
-    const tipoPokemon = result.types.map(t => `${t.type.name}`);
-    const tipoH3 = document.getElementById("tipo-pokedex");
-    tipoH3.textContent = formatTextType(tipoPokemon);
+  mostrarPokemon(idABuscar, "pokedex")
   
-    // Id del Pokemon
-    const idPokemon = result.id;
-    const idH4 = document.getElementById("id-pokedex");
-    idH4.textContent = '# ' + idPokemon + ' - ';
-
-    // Stats del Pokemon
-    const statsPokemon = result.stats.map(s => `${s.stat.name}: ${s.base_stat}`);
-    const statsH5 = document.getElementById("stats-pokedex");
-    statsH5.innerHTML = formatTextStats(statsPokemon);
-
 // limpia el input cuando termina la busqueda
 document.getElementById("buscar").value = "";
 
 // reinicio la variable idActual
 idActual = idPokemon;
 
-})
-  .catch((error) => console.error(error));
 };
 
-
+// función para cambiar la imagen de un pokemon de default a shiny
 function cambioIMG(){
 
   fetch(`https://pokeapi.co/api/v2/pokemon/${idActual}`, requestOptions)
@@ -175,4 +123,18 @@ function cambioIMG(){
   .catch((error) => console.error(error));
 };
 
+// funcion para obtener un Id diario y mostrarlo en la pagina principal
+function getDailyPokemonId() {
+  const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+  const storedDate = localStorage.getItem("pokemonDate");
+  let id = localStorage.getItem("pokemonId");
 
+  if (storedDate !== today || !id) {
+    // Si no hay un ID guardado o es de otro día → genera uno nuevo
+    id = Math.floor(Math.random() * 1010) + 1;
+    localStorage.setItem("pokemonId", id);
+    localStorage.setItem("pokemonDate", today);
+  }
+
+  return id;
+};

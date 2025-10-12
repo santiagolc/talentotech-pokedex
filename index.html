@@ -1,59 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <title>Proyecto - PokeAPIs</title>
-</head>
-<body>
-    <header>
-        <!-- <img src="img/pokeball_1.png" alt=""> -->
-        <nav>
-            <ul>
-            <li><a href="C:\Users\santiago.luna\OneDrive - Accenture\Talento Tech - FrontJS\Proyecto\index.html">Inicio</a></li>
-            <li><a href="C:\Users\santiago.luna\OneDrive - Accenture\Talento Tech - FrontJS\Proyecto\pokedex.html">Pokédex</a></li>
-            <li><a href="#">Comparador</a></li>
-            <li><a href="#">Galería</a></li>
-            </ul>
-        </nav>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/styles.css">
+        <title>Proyecto - PokeAPIs</title>
+    </head>
+    <body>
+        <header>
+            <!-- <img src="img/pokeball_1.png" alt=""> -->
+            <nav>
+                <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="pokedex.html">Pokédex</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <!-- <li><a href="#">Comparador</a></li>
+                <li><a href="#">Galería</a></li> -->
+                </ul>
+            </nav>
+        </header>
 
-    <main>
-        <h2>Pokemon del dia:</h2>
-        <section class="cards">
-            <article class="pokemon-card">
-                <img id="img-pokedex" class="img-pokedex" src="" alt="">
-                <div>
-                    <span id="id-pokedex"></span>
-                    <span id="nombre-pokedex"></span>
-                    <p id="tipo-pokedex"></p>                    
-                    <p id="stats-pokedex"></p>
-                </div>
-            </article>
-        </section>
+        <main>
+            <h2>Pokemon del dia:</h2>
+            <section class="cards">
+                <article class="pokemon-card">
+                    <img id="img-pokemon-del-dia" src="" alt="">
+                    <div>
+                        <span id="id-pokemon-del-dia"></span>
+                        <span id="nombre-pokemon-del-dia"></span>
+                        <p id="tipo-pokemon-del-dia"></p>                    
+                        <p id="stats-pokemon-del-dia"></p>
+                        <!-- <p id="descripcion-pokemon-del-dia"></p> -->
+                    </div>
+                </article>
+            </section>
 
-         <section class="cards">
-            <article class="pokedex-card">
+            <!-- <section class="cards">
+                <article class="pokedex-card">
+                    <div>
+                        <img src="img/pokedex.png" alt="Pokedex">
+                    </div>
+                </article>
 
-            </article>
-            <article class="comparador-card">
+                <article class="comparador-card">
+                    <div>
+                        <img src="img/versus.jpg" alt="">
+                    </div>
+                </article>
 
-            </article>
-            <article class="galeria-card">
+                <article class="galeria-card">
+                    <div>
+                        <img src="img/pokeball_1.png" alt="">
+                    </div>
+                </article>
+            </section>  -->
 
-            </article>
-        </section> 
+        </main>
 
-    </main>
-
-    <footer>
-        <p>© 2025 Tu proyecto Pokémon | API: PokeAPI</p>
-    </footer>  
-    
-    <script src="scripts/utils.js"></script>
-    <script src="scripts/script.js"></script>
-</body>
+        <footer>
+            <p>© 2025 Tu proyecto Pokémon | API: PokeAPI</p>
+        </footer>  
+        
+        <script src="scripts/utils.js"></script>
+        <script src="scripts/script.js"></script>
+    </body>
 </html>
