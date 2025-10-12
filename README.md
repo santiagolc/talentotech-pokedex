@@ -3,6 +3,7 @@
 Proyecto realizado como práctica de **HTML**, **CSS** y **JavaScript**, utilizando la [PokéAPI](https://pokeapi.co/) para obtener datos en tiempo real sobre los Pokémon.
 
 ## ✨ Funcionalidades
+- Mostrar el **Pokémon del día**, seleccionado aleatoriamente y persistido con localStorage.
 - Buscar Pokémon por nombre o número de Pokédex.
 - Ver detalles como:
   - Imagen
@@ -12,11 +13,13 @@ Proyecto realizado como práctica de **HTML**, **CSS** y **JavaScript**, utiliza
   - Estadísticas (HP, Ataque, Defensa, etc.)
 - Navegar entre Pokémon con botones **anterior/siguiente**.
 - Alternar entre versión normal y **shiny** del Pokémon.
+- *(Opcional para entrega final)* Formulario de contacto con envío mediante Formspree.
 
 ## 🛠️ Tecnologías usadas
 - HTML5
 - CSS3 (con flexbox y grid para layout)
 - JavaScript (fetch API, DOM manipulation)
+- localStorage
 - GitHub Pages para el despliegue
 
 ## 🚀 Demo
@@ -28,6 +31,7 @@ Podés probar la Pokédex online en el siguiente link:
 ├── index.html
 ├── pokedex.html
 ├── styles/
+│   ├── reset.css
 │   └── styles.css
 ├── scripts/
 │   ├── script.js
