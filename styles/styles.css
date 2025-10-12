@@ -129,3 +129,48 @@ main {
 .cards form button:hover {
   background-color: black;
 }
+
+/* 📱 Dispositivos pequeños (celulares en vertical) */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cards article,
+  .cards form {
+    width: 90%; /* que las cards y formularios ocupen casi todo el ancho */
+  }
+
+  header, footer {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* 💻 Tablets o pantallas medianas */
+@media (min-width: 601px) and (max-width: 1024px) {
+  nav ul {
+    justify-content: center;
+  }
+
+  .cards article {
+    width: 45%; /* dos cards por fila */
+  }
+}
