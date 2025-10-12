@@ -7,61 +7,56 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/styles_test.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Pokedex</title>
 </head>
-<body>
-    <header>
-        <!-- <img src="img/pokeball_1.png" alt=""> -->
-        <nav>
-            <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="pokedex.html">Pokédex</a></li>
-            <li><a href="#">Comparador</a></li>
-            <li><a href="#">Galería</a></li>
-            </ul>
-        </nav>
-    </header>
+    <body>
+        <header>
+            <!-- <img src="img/pokeball_1.png" alt=""> -->
+            <nav>
+                <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="pokedex.html">Pokédex</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <!-- <li><a href="#">Comparador</a></li>
+                <li><a href="#">Galería</a></li> -->
+                </ul>
+            </nav>
+        </header>
 
-    <main>
+        <main>
 
-        <button id="anterior"> < </button>
+            <button id="anterior"> < </button>
 
-        <section class="cards">
-            <article class="pokemon-card">
-                <img id="img-pokedex" class="img-pokedex" src="" alt="">
-                <div>
-                    <!-- <h2 id="nombre-pokedex"></h2>
-                    <h3 id="tipo-pokedex"></h3>
-                    <h4 id="id-pokedex"></h4>
-                    <h5 id="stats-pokedex"></h5> -->
+            <section class="cards">
+                <article class="pokemon-card">
+                    <img id="img-pokedex" src="" alt="">
+                    <div>
+                        <span id="id-pokedex"></span>
+                        <span id="nombre-pokedex"></span>
+                        <p id="tipo-pokedex"></p>                    
+                        <p id="stats-pokedex"></p>
+                    </div>
+                </article>
+            </section>
+            
+            <button id="siguiente"> > </button> <br><br>
 
-                    <span id="id-pokedex"></span>
-                    <span id="nombre-pokedex"></span>
-                    <p id="tipo-pokedex"></p>                    
-                    <p id="stats-pokedex"></p>
-                </div>
-            </article>
-        </section>
-        
-        <button id="siguiente"> > </button> <br><br>
+            <button id="shiny">Shiny</button> <br><br>
 
-        <button id="shiny">Shiny</button> <br><br>
+            <!-- Input y boton para buscar un Pokemon en particular  -->
+            <form id="buscar-form"></form>
+                <input id="buscar" type="text" placeholder="Escribi el nombre del Pokemon">        
+                <button id="submit" type="submit">Buscar</button>
+            </form>
+                
+        </main>
 
-        <!-- Input y boton para buscar un Pokemon en particular  -->
-        <form id="buscar-form"></form>
-            <input id="buscar" type="text" placeholder="Escribi el nombre del Pokemon">        
-            <button id="submit" type="submit">Buscar</button>
-        </form>
-              
-    </main>
+        <footer>
+            <p>© 2025 Tu proyecto Pokémon | API: PokeAPI</p>
+        </footer>   
 
-    <footer>
-        <p>© 2025 Tu proyecto Pokémon | API: PokeAPI</p>
-    </footer>   
-
-    <script src="https://kit.fontawesome.com/46915bba21.js" crossorigin="anonymous"></script>
-    <script src="scripts/utils_test.js"></script>
-    <script src="scripts/script_test.js"></script>
-</body>
+        <script src="scripts/utils.js"></script>
+        <script src="scripts/script.js"></script>
+    </body>
 </html>
